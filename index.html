@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ms">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +18,7 @@
         body {
             font-family: 'Fredoka', sans-serif;
             background-color: #f1f5f9;
-            font-size: 16px; /* Saiz standard seimbang */
+            font-size: 16px; /* Ukuran standar seimbang */
         }
 
         .gradient-navy {
@@ -32,7 +32,7 @@
             backdrop-filter: blur(10px);
         }
 
-        /* Skrol bar tersuai */
+        /* Batasi skrol bar agar lebih rapi */
         ::-webkit-scrollbar { width: 10px; height: 12px; }
         ::-webkit-scrollbar-track { background: #f8fafc; border-radius: 10px; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
@@ -41,14 +41,14 @@
 </head>
 <body class="antialiased text-slate-800 pb-20">
 
-    <!-- PENGEPALA PREMIUM (HEADER) -->
+    <!-- HEADER PREMIUM - TANPA LOGO -->
     <header class="gradient-navy text-white shadow-2xl sticky top-0 z-50">
         <div class="max-w-[1600px] mx-auto px-8 py-6">
             <div class="flex flex-col md:flex-row items-center justify-between gap-6">
                 
                 <div class="text-center md:text-left">
                     <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-yellow-400 uppercase">
-                        Pengurusan Kewangan PIBG
+                        Pengelolaan Keuangan Komite Sekolah
                     </h1>
                     <p class="text-lg md:text-xl font-medium text-blue-200 uppercase tracking-widest mt-1">
                         SK St. Anne's Convent <span class="ml-2 bg-emerald-500/20 text-emerald-400 text-xs font-extrabold px-2.5 py-1 rounded-full uppercase tracking-normal border border-emerald-400/30"><i class="fa-solid fa-cloud mr-1"></i> Awan Aktif (Live)</span>
@@ -57,7 +57,7 @@
                 
                 <div class="flex items-center gap-4 shrink-0">
                     <button id="btnToggleMode" onclick="bukaModalLaluan()" class="bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold text-base px-8 py-3 rounded-2xl transition-all shadow-xl flex items-center gap-2 cursor-pointer border border-yellow-300">
-                        <i class="fa-solid fa-lock text-base"></i> MOD ADMIN
+                        <i class="fa-solid fa-lock text-base"></i> MODE ADMIN
                     </button>
                 </div>
             </div>
@@ -66,17 +66,17 @@
 
     <main class="max-w-[1600px] mx-auto px-8 mt-10 space-y-10">
 
-        <!-- ================= SECTION 1: KEDUDUKAN BANK & DANA ================= -->
+        <!-- ================= SEKSI 1: SALDO BANK & DANA UTAMA ================= -->
         <section class="grid grid-cols-1 xl:grid-cols-12 gap-8">
             
-            <!-- KAD BANK UTAMA -->
+            <!-- KARTU UTAMA REKENING BANK -->
             <div class="xl:col-span-4 lg:col-span-12 gradient-navy rounded-[2.5rem] p-10 text-white shadow-2xl relative overflow-hidden flex flex-col justify-center min-h-[300px]">
                 <div class="absolute -right-10 -top-10 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl"></div>
                 <div class="relative z-10 text-center md:text-left">
                     <span class="bg-white/10 text-blue-200 text-xs font-bold px-4 py-2 rounded-full border border-white/10 tracking-widest uppercase">
-                        Akaun Bank Semasa
+                        Rekening Bank Saat Ini
                     </span>
-                    <h2 class="text-sm font-medium text-slate-400 mt-6 uppercase tracking-widest">Baki Semasa Gabungan</h2>
+                    <h2 class="text-sm font-medium text-slate-400 mt-6 uppercase tracking-widest">Saldo Saat Ini (Gabungan)</h2>
                     <div id="txtBakiBank" class="text-4xl md:text-5xl lg:text-6xl font-black text-yellow-400 mt-2 tracking-tight leading-tight">RM 0.00</div>
                     
                     <div class="flex gap-8 mt-6 border-t border-slate-700/50 pt-6">
@@ -92,20 +92,21 @@
                 </div>
             </div>
 
+            <!-- KARTU ALOKASI SUB-DANA -->
             <div class="xl:col-span-8 lg:col-span-12 grid grid-cols-1 md:grid-cols-2 gap-8">
                 
-                <!-- PIBG -->
+                <!-- DANA UMUM KOMITE -->
                 <div class="glass-card rounded-[2.5rem] p-8 border-t-8 border-t-blue-500 flex flex-col justify-between">
                     <div class="flex justify-between items-start">
                         <div>
-                            <h3 class="text-xl font-bold text-slate-800 uppercase">1. Dana Am PIBG</h3>
-                            <p class="text-slate-500 text-sm mt-1">Sumbangan Awam, Ibu Bapa & Yuran</p>
+                            <h3 class="text-xl font-bold text-slate-800 uppercase">1. Dana Umum Komite</h3>
+                            <p class="text-slate-500 text-sm mt-1">Sumbangan Sukarela, Orang Tua & Iuran</p>
                         </div>
                         <div class="bg-blue-100 p-3 rounded-2xl text-blue-600"><i class="fa-solid fa-scale-balanced text-xl"></i></div>
                     </div>
                     <div class="mt-6 bg-blue-50/50 rounded-2xl p-5 flex flex-col lg:flex-row lg:justify-between lg:items-end gap-4 border border-blue-100">
                         <div>
-                            <p class="text-[11px] text-blue-900/60 uppercase font-bold tracking-widest mb-1">Baki Bersih</p>
+                            <p class="text-[11px] text-blue-900/60 uppercase font-bold tracking-widest mb-1">Saldo Bersih</p>
                             <p id="pibgBaki" class="text-3xl font-black text-blue-700">RM 0.00</p>
                         </div>
                         <div class="text-right text-xs bg-white px-3.5 py-2.5 rounded-xl shadow-sm space-y-1">
@@ -115,18 +116,18 @@
                     </div>
                 </div>
 
-                <!-- KELAS TAMBAHAN -->
+                <!-- DANA KELAS TAMBAHAN -->
                 <div class="glass-card rounded-[2.5rem] p-8 border-t-8 border-t-rose-500 flex flex-col justify-between">
                     <div class="flex justify-between items-start">
                         <div>
                             <h3 class="text-xl font-bold text-slate-800 uppercase">2. Kelas Tambahan</h3>
-                            <p class="text-slate-500 text-sm mt-1">Pelajaran & Modul Murid</p>
+                            <p class="text-slate-500 text-sm mt-1">Pembelajaran & Modul Belajar Siswa</p>
                         </div>
                         <div class="bg-rose-100 p-3 rounded-2xl text-rose-600"><i class="fa-solid fa-graduation-cap text-xl"></i></div>
                     </div>
                     <div class="mt-6 bg-rose-50/50 rounded-2xl p-5 flex flex-col lg:flex-row lg:justify-between lg:items-end gap-4 border border-rose-100">
                         <div>
-                            <p class="text-[11px] text-rose-900/60 uppercase font-bold tracking-widest mb-1">Baki Bersih</p>
+                            <p class="text-[11px] text-rose-900/60 uppercase font-bold tracking-widest mb-1">Saldo Bersih</p>
                             <p id="kelasBaki" class="text-3xl font-black text-rose-700">RM 0.00</p>
                         </div>
                         <div class="text-right text-xs bg-white px-3.5 py-2.5 rounded-xl shadow-sm space-y-1">
@@ -245,15 +246,17 @@
         <!-- ================= SECTION 3: BORANG PENTADBIR (TERSEMBUNYI SECARA LALAI) ================= -->
         <div id="sectionBorangKewangan" class="hidden space-y-6 mt-10 bg-white p-8 rounded-[2.5rem] shadow-xl border border-slate-200 border-t-8 border-t-yellow-400">
              
-             <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-4">
+             <div class="flex flex-col lg:flex-row items-center justify-between border-b border-slate-100 pb-6 gap-4">
                  <div class="flex items-center gap-4">
                      <div class="bg-yellow-100 p-2.5 rounded-xl text-yellow-600"><i class="fa-solid fa-user-shield text-lg"></i></div>
                      <h3 class="text-xl font-bold uppercase text-slate-800">Ruangan Pentadbir (Key-In Data)</h3>
                  </div>
-                 <!-- BUTANG RESET EMERGENSI UNTUK MEMULIHKAN DATA ASAL -->
-                 <button onclick="bukaModalPengesahanReset()" class="bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs px-5 py-2.5 rounded-xl flex items-center gap-2 cursor-pointer transition-colors shadow">
-                     <i class="fa-solid fa-arrows-rotate animate-spin-slow"></i> FORMAT & RESET KE DATA ASAL
-                 </button>
+                 <!-- BUTANG RESET DAN IMPOR CSV -->
+                 <div class="flex flex-wrap gap-3">
+                     <button onclick="bukaModalPengesahanReset()" class="bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs px-5 py-3 rounded-xl flex items-center gap-2 cursor-pointer transition-colors shadow">
+                         <i class="fa-solid fa-arrows-rotate"></i> FORMAT & RESET DATA
+                     </button>
+                 </div>
              </div>
 
              <div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
@@ -367,131 +370,74 @@
                     </div>
                 </form>
              </div>
+
+             <!-- KOTAK IMPOR CSV SECARA MANUAL UNTUK MENYINKRONKAN DATA -->
+             <div class="bg-indigo-50/50 rounded-2xl p-6 border border-indigo-100 mt-6 text-sm">
+                <h4 class="text-lg font-bold text-indigo-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-file-import"></i> Muat Naik Data Tempatan (Impor CSV)</h4>
+                <p class="text-slate-600 text-xs mb-4">Jika data di pelayan awan kosong, anda boleh mengeksport data dari versi desktop anda sebagai CSV, kemudian memuat naiknya di sini untuk disinkronkan secara langsung ke awan.</p>
+                <div class="flex flex-col md:flex-row gap-4 items-center">
+                    <input type="file" id="inputCSV" accept=".csv" class="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 outline-none">
+                    <button onclick="imporDariCSV()" class="w-full md:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-6 rounded-xl transition-colors shadow-md cursor-pointer whitespace-nowrap"><i class="fa-solid fa-cloud-arrow-up mr-2"></i> Sinkron Ke Awan</button>
+                </div>
+             </div>
         </div>
 
         <!-- ================= SECTION 4: PRESTASI & SENARAI JADUAL ================= -->
         <section class="mt-10 space-y-10">
-            
-            <!-- CARTA ALIRAN & BILANGAN MURID KELAS -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                 
-                 <!-- Carta Aliran Tunai Bulanan -->
-                 <div class="glass-card rounded-[2.5rem] overflow-hidden shadow-xl p-8">
-                      <div class="flex items-center justify-between mb-4">
-                          <div>
-                              <h3 class="text-xl font-bold text-slate-800 flex items-center gap-2"><i class="fa-solid fa-chart-line text-blue-600"></i> Analisis Aliran Tunai Tahunan</h3>
-                              <p class="text-slate-500 text-xs mt-1 uppercase tracking-wider font-bold">Graf Perbandingan Keluar & Masuk Setiap Bulan</p>
-                          </div>
-                      </div>
-                      <div class="h-[380px] relative">
-                          <canvas id="chartKewanganDuaDana"></canvas>
-                      </div>
+                 <div class="glass-card rounded-[2.5rem] p-8">
+                      <h3 class="text-xl font-bold text-slate-800 mb-4"><i class="fa-solid fa-chart-line text-blue-600"></i> Analisis Aliran Tunai Tahunan</h3>
+                      <div class="h-[380px] relative"><canvas id="chartKewanganDuaDana"></canvas></div>
                  </div>
-
-                 <!-- Carta Taburan Status Yuran Mengikut Kelas -->
-                 <div class="glass-card rounded-[2.5rem] overflow-hidden shadow-xl p-8">
+                 <div class="glass-card rounded-[2.5rem] p-8">
                       <div class="flex items-center justify-between mb-4">
-                          <div>
-                              <h3 class="text-xl font-bold text-slate-800 flex items-center gap-2"><i class="fa-solid fa-chart-bar text-amber-500"></i> Status Kutipan Mengikut Kelas</h3>
-                              <p class="text-slate-500 text-xs mt-1 uppercase tracking-wider font-bold">Graf Perbandingan Selesai vs Belum Bayar</p>
-                          </div>
-                          <div class="bg-emerald-100 text-emerald-800 font-bold text-sm px-4 py-1.5 rounded-xl border border-emerald-200">
-                              Total Murid: <span id="txtJumlahMuridKeseluruhan" class="text-base font-extrabold">330</span>
-                          </div>
+                          <h3 class="text-xl font-bold text-slate-800"><i class="fa-solid fa-chart-bar text-amber-500"></i> Status Kutipan Mengikut Kelas</h3>
+                          <div class="bg-emerald-100 text-emerald-800 font-bold text-sm px-4 py-1.5 rounded-xl">Total Murid: <span id="txtJumlahMuridKeseluruhan">0</span></div>
                       </div>
-                      <div class="h-[380px] relative">
-                          <canvas id="chartKewanganKelas"></canvas>
-                      </div>
+                      <div class="h-[380px] relative"><canvas id="chartKewanganKelas"></canvas></div>
                  </div>
-
             </div>
 
-            <!-- JADUAL 1: BUKU TUNAI (PENERIMAAN & PERBELANJAAN) -->
+            <!-- BUKU TUNAI -->
             <div class="space-y-6">
-                <!-- KAWALAN BUKU TUNAI (Filter & Eksport Row) -->
                 <div class="flex flex-wrap items-center justify-between gap-4 bg-white p-6 rounded-[2rem] shadow-sm border border-slate-200">
-                    <div class="flex items-center gap-3">
-                        <div class="bg-blue-100 p-3 rounded-xl text-blue-600"><i class="fa-solid fa-filter text-lg"></i></div>
-                        <select id="filterDana" onchange="paparJadual()" class="bg-slate-50 border border-slate-200 text-slate-700 rounded-xl px-4 py-3 text-base font-bold outline-none focus:ring-2 focus:ring-blue-500 min-w-[280px]">
-                            <option value="SEMUA">Papar Semua Dana (Buku Tunai Gabungan)</option>
-                            <option value="PIBG">Dana PIBG Sahaja</option>
-                            <option value="Kelas Tambahan">Kelas Tambahan Sahaja</option>
-                        </select>
-                    </div>
+                    <select id="filterDana" onchange="paparJadual()" class="bg-slate-50 border border-slate-200 text-slate-700 rounded-xl px-4 py-3 font-bold outline-none">
+                        <option value="SEMUA">Papar Semua Dana (Buku Tunai Gabungan)</option>
+                        <option value="PIBG">Dana PIBG Sahaja</option>
+                        <option value="Kelas Tambahan">Kelas Tambahan Sahaja</option>
+                    </select>
                     <button onclick="eksportCSV()" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-800 px-6 py-3 rounded-xl text-sm font-bold transition-colors flex items-center gap-2 shadow-sm cursor-pointer">
                         <i class="fa-solid fa-file-excel"></i> Eksport (CSV)
                     </button>
                 </div>
 
-                <!-- JADUAL BUKU TUNAI ASING (Penerimaan vs Perbelanjaan) -->
                 <div class="grid grid-cols-1 xl:grid-cols-2 gap-10">
-                    
-                    <!-- JADUAL MASUK (PENERIMAAN) -->
+                    <!-- MASUK -->
                     <div class="glass-card rounded-[2.5rem] overflow-hidden flex flex-col shadow-xl border-t-8 border-t-emerald-500">
                         <div class="p-6 bg-white border-b border-slate-200"><h3 class="text-xl font-bold text-slate-800">Penyata Penerimaan (Wang Masuk)</h3></div>
                         <div class="overflow-x-auto max-h-[500px] bg-white">
                             <table class="w-full text-left border-collapse">
-                                <thead class="bg-slate-50 text-slate-600 text-xs font-bold uppercase tracking-wider border-b border-slate-200 sticky top-0 z-10 shadow-sm">
-                                    <tr>
-                                        <th class="p-4 whitespace-nowrap">Tarikh</th>
-                                        <th class="p-4">Butiran</th>
-                                        <th class="p-4 text-right">Debit (RM)</th>
-                                        <th class="p-4 text-center id-tindakan hidden">Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="badanJadualMasuk" class="text-sm md:text-base font-medium text-slate-700 divide-y divide-slate-100">
-                                    <!-- JS Inject -->
-                                </tbody>
-                            </table>
+                                <thead class="bg-slate-50 text-slate-600 text-xs font-bold uppercase tracking-wider border-b sticky top-0"><tr><th class="p-4">Tarikh</th><th class="p-4">Butiran</th><th class="p-4 text-right">Debit (RM)</th><th class="p-4 text-center id-tindakan hidden">Aksi</th></tr></thead><tbody id="badanJadualMasuk" class="text-sm md:text-base font-medium text-slate-700 divide-y divide-slate-100"></tbody></table>
                         </div>
                     </div>
-
-                    <!-- JADUAL KELUAR (PERBELANJAAN) -->
+                    <!-- KELUAR -->
                     <div class="glass-card rounded-[2.5rem] overflow-hidden flex flex-col shadow-xl border-t-8 border-t-rose-500">
                         <div class="p-6 bg-white border-b border-slate-200"><h3 class="text-xl font-bold text-slate-800">Penyata Pembayaran (Wang Keluar)</h3></div>
                         <div class="overflow-x-auto max-h-[500px] bg-white">
                             <table class="w-full text-left border-collapse">
-                                <thead class="bg-slate-50 text-slate-600 text-xs font-bold uppercase tracking-wider border-b border-slate-200 sticky top-0 z-10 shadow-sm">
-                                    <tr>
-                                        <th class="p-4 whitespace-nowrap">Tarikh</th>
-                                        <th class="p-4">Butiran</th>
-                                        <th class="p-4 text-right">Kredit (RM)</th>
-                                        <th class="p-4 text-center id-tindakan hidden">Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="badanJadualKeluar" class="text-sm md:text-base font-medium text-slate-700 divide-y divide-slate-100">
-                                    <!-- JS Inject -->
-                                </tbody>
-                            </table>
+                                <thead class="bg-slate-50 text-slate-600 text-xs font-bold uppercase tracking-wider border-b sticky top-0"><tr><th class="p-4">Tarikh</th><th class="p-4">Butiran</th><th class="p-4 text-right">Kredit (RM)</th><th class="p-4 text-center id-tindakan hidden">Aksi</th></tr></thead><tbody id="badanJadualKeluar" class="text-sm md:text-base font-medium text-slate-700 divide-y divide-slate-100"></tbody></table>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- JADUAL 2: RINGKASAN KUTIPAN KELAS -->
+            <!-- ANALISIS KELAS -->
             <div class="glass-card rounded-[2.5rem] overflow-hidden shadow-xl border-t-8 border-t-amber-500">
-                <div class="p-6 bg-white border-b border-slate-200">
-                    <h3 class="text-xl font-bold text-slate-800 flex items-center gap-2"><i class="fa-solid fa-wallet text-amber-600"></i> Penyata Pembayaran Yuran Mengikut Kelas</h3>
-                    <p class="text-slate-500 text-xs mt-1 uppercase tracking-wider font-bold">Ringkasan Status Murid Selesai & Belum Selesai Bayar</p>
-                </div>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse">
-                        <thead class="bg-slate-50 text-slate-600 text-sm font-bold uppercase border-b border-slate-200">
-                            <tr>
-                                <th class="p-5">Nama Kelas</th>
-                                <th class="p-5 text-center bg-blue-50/20 text-slate-800">Jumlah Murid (A)</th>
-                                <th class="p-5 text-center bg-emerald-50/20 text-emerald-800">Selesai Bayar (B)</th>
-                                <th class="p-5 text-center bg-rose-50/20 text-rose-800">Belum Bayar (A - B)</th>
-                            </tr>
-                        </thead>
-                        <tbody id="badanAnalisisKutipanKelas" class="text-base md:text-lg font-semibold text-slate-700 divide-y divide-slate-100">
-                            <!-- JS Inject -->
-                        </tbody>
-                    </table>
-                </div>
+                <div class="p-6 bg-white border-b border-slate-200"><h3 class="text-xl font-bold text-slate-800">Penyata Pembayaran Yuran Mengikut Kelas</h3></div>
+                <div class="overflow-x-auto"><table class="w-full text-left border-collapse"><thead class="bg-slate-50 text-slate-600 text-sm font-bold uppercase border-b border-slate-200"><tr><th class="p-5">Nama Kelas</th><th class="p-5 text-center bg-blue-50/20 text-slate-800">Jumlah Murid (A)</th><th class="p-5 text-center bg-emerald-50/20 text-emerald-800">Selesai Bayar (B)</th><th class="p-5 text-center bg-rose-50/20 text-rose-800">Belum Bayar (A - B)</th></tr></thead><tbody id="badanAnalisisKutipanKelas" class="text-base md:text-lg font-semibold text-slate-700 divide-y divide-slate-100"></tbody></table></div>
             </div>
 
-            <!-- JADUAL 3: SENARAI PERMOHONAN DANA UNIT -->
+            <!-- PERMOHONAN UNIT -->
             <div class="glass-card rounded-[2.5rem] overflow-hidden flex flex-col shadow-xl">
                 <div class="p-6 bg-white border-b border-slate-200 flex flex-col sm:flex-row justify-between gap-4">
                     <div>
@@ -629,7 +575,7 @@
         let db, auth;
         let isFirebaseActive = false;
 
-        // Data Permulaan Tempatan Sebagai Lalai (Data sedia ada yang telah anda masukkan)
+        // Data Permulaan Tempatan Sebagai Lalai
         const defaultDatabase = [
             { id: 1, tarikh: "2026-01-15", dana: "PIBG", jenis: "Masuk", kategori: "Sumbangan Ibu Bapa", perincian: "Kutipan Sumbangan PIBG Fasa 1", amaun: 24500.00 },
             { id: 2, tarikh: "2026-02-10", dana: "PIBG", jenis: "Masuk", kategori: "Sumbangan Luar", perincian: "Sumbangan Korporat Syarikat Al-Ikhsan", amaun: 5000.00 },
@@ -666,7 +612,7 @@
             { id: 12, nama: 'Unjuran Bayaran Penapis Air Coway', kadar: 123.00, bulan: 6, jumlah: 738.00 }
         ];
 
-        // Menyalin data asal ke memori aktif
+        // Pengaktifan pembolehubah memori aktif
         let database = JSON.parse(JSON.stringify(defaultDatabase));
         let permohonanDatabase = JSON.parse(JSON.stringify(defaultPermohonanDatabase));
         let muridDatabase = JSON.parse(JSON.stringify(defaultMuridDatabase));
@@ -1229,29 +1175,24 @@
                     
                     try {
                         if (isFirebaseActive) {
-                            // 1. Padam Koleksi Transaksi
                             const snapTransaksi = await getDocs(collection(db, 'artifacts', appId, 'public', 'data', 'transaksi'));
                             for (const d of snapTransaksi.docs) {
                                 await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'transaksi', d.id));
                             }
                             
-                            // 2. Padam Koleksi Permohonan
                             const snapPermohonan = await getDocs(collection(db, 'artifacts', appId, 'public', 'data', 'permohonan'));
                             for (const d of snapPermohonan.docs) {
                                 await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'permohonan', d.id));
                             }
                             
-                            // 3. Padam Koleksi Anggaran
                             const snapAnggaran = await getDocs(collection(db, 'artifacts', appId, 'public', 'data', 'anggaran'));
                             for (const d of snapAnggaran.docs) {
                                 await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'anggaran', d.id));
                             }
                             
-                            // 4. Set Semula Rekod Murid
                             const docRefMurid = doc(db, 'artifacts', appId, 'public', 'data', 'murid_kelas', 'data_murid');
                             await setDoc(docRefMurid, defaultMuridDatabase);
                             
-                            // 5. Muat naik Semula Data Asal Terus ke Awan
                             for (const item of defaultDatabase) {
                                 await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'transaksi'), item);
                             }
@@ -1264,7 +1205,6 @@
                             
                             tunjukToast("DATA AWAN BERJAYA DIPULIHKAN!");
                         } else {
-                            // Reset Tempatan (Offline Mode)
                             localStorage.setItem('st_annes_pibg_db_v2', JSON.stringify(defaultDatabase));
                             localStorage.setItem('st_annes_pibg_permohonan_db', JSON.stringify(defaultPermohonanDatabase));
                             localStorage.setItem('st_annes_pibg_murid_db', JSON.stringify(defaultMuridDatabase));
@@ -1278,6 +1218,74 @@
                     }
                 };
             }
+        }
+
+        // --- SISTEM MEMUAT NAIK DATA ASAL DARI CSV ---
+        async function imporDariCSV() {
+            const input = document.getElementById('inputCSV');
+            if (!input.files || input.files.length === 0) {
+                tunjukToast("Sila pilih fail CSV terlebih dahulu!", "ralat");
+                return;
+            }
+            const file = input.files[0];
+            const reader = new FileReader();
+            reader.onload = async function(e) {
+                const text = e.target.result;
+                const lines = text.split("\n");
+                if (lines.length <= 1) {
+                    tunjukToast("Fail CSV kosong atau tidak sah!", "ralat");
+                    return;
+                }
+                
+                tunjukToast("Sedang menyinkronkan data...", "info");
+                let parsedCount = 0;
+                
+                // Format: Tarikh, Dana, Jenis Transaksi, Kelas, Kategori, Perincian, Amaun
+                for (let i = 1; i < lines.length; i++) {
+                    const line = lines[i].trim();
+                    if (!line) continue;
+                    
+                    const parts = line.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+                    if (parts.length < 7) continue;
+                    
+                    const tarikh = parts[0].replace(/"/g, '');
+                    const dana = parts[1].replace(/"/g, '');
+                    const jenis = parts[2].replace(/"/g, '');
+                    const kelas = parts[3].replace(/"/g, '');
+                    const kategori = parts[4].replace(/"/g, '');
+                    const perincian = parts[5].replace(/"/g, '');
+                    const amaun = parseFloat(parts[6].replace(/"/g, ''));
+                    
+                    if (isNaN(amaun)) continue;
+                    
+                    const rekod = {
+                        tarikh: tarikh,
+                        dana: dana,
+                        jenis: jenis,
+                        kelas: kelas || 'Umum',
+                        kategori: kategori,
+                        perincian: perincian,
+                        amaun: amaun,
+                        dibuatPada: Date.now()
+                    };
+                    
+                    if (isFirebaseActive) {
+                        await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'transaksi'), rekod);
+                    } else {
+                        rekod.id = Date.now() + i;
+                        database.push(rekod);
+                    }
+                    parsedCount++;
+                }
+                
+                if (!isFirebaseActive) {
+                    simpanStorage();
+                }
+                
+                tunjukToast(`${parsedCount} rekod berjaya diimpor!`);
+                input.value = '';
+            };
+            reader.readAsText(file);
         }
 
         function eksportCSV() {
@@ -1309,6 +1317,7 @@
         window.padamItem = padamItem;
         window.tutupModalPengesahan = tutupModalPengesahan;
         window.bukaModalPengesahanReset = bukaModalPengesahanReset;
+        window.imporDariCSV = imporDariCSV;
         window.eksportCSV = eksportCSV;
         window.eksportPermohonanCSV = eksportPermohonanCSV;
         window.paparJadual = paparJadual;
