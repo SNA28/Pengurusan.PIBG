@@ -556,7 +556,7 @@
     <!-- NOTIFIKASI TOAST -->
     <div id="notifikasiToast" class="fixed bottom-10 left-1/2 -translate-x-1/2 z-[100] transform translate-y-24 opacity-0 transition-all duration-300 ease-out">
         <div class="bg-slate-900 text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 border border-slate-700 text-sm">
-            <span><i class="fa-solid fa-check-circle text-emerald-400 text-lg"></i></span>
+            <span id="ikonToast"><i class="fa-solid fa-check-circle text-emerald-400 text-lg"></i></span>
             <p id="mesejToast" class="text-sm font-bold uppercase tracking-widest"></p>
         </div>
     </div>
@@ -630,8 +630,12 @@
         function tunjukToast(mesej, status = 'sukses') {
             const toast = document.getElementById('notifikasiToast');
             if (toast) {
-                document.getElementById('mesejToast').innerText = mesej;
-                document.getElementById('ikonToast').innerHTML = status === 'sukses' ? '<i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>' : '<i class="fa-solid fa-circle-exclamation text-rose-500 text-lg"></i>';
+                const mesejToast = document.getElementById('mesejToast');
+                const ikonToast = document.getElementById('ikonToast');
+                if (mesejToast) mesejToast.innerText = mesej;
+                if (ikonToast) {
+                    ikonToast.innerHTML = status === 'sukses' ? '<i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>' : '<i class="fa-solid fa-circle-exclamation text-rose-500 text-lg"></i>';
+                }
                 toast.classList.remove('translate-y-24', 'opacity-0');
                 setTimeout(() => toast.classList.add('translate-y-24', 'opacity-0'), 3000);
             }
@@ -1092,11 +1096,11 @@
         }
 
         function paparJadualPermohonan() {
-            const改造 = document.getElementById('badanJadualPermohonan');
-            if (!改造) return;
+            const badanJadual = document.getElementById('badanJadualPermohonan');
+            if (!badanJadual) return;
             const fUnit = document.getElementById('filterUnit').value;
             const fStat = document.getElementById('filterStatus').value;
-            改造.innerHTML = '';
+            badanJadual.innerHTML = '';
             
             let filtered = permohonanDatabase.filter(i => (fUnit==='SEMUA' || i.unit===fUnit) && (fStat==='SEMUA' || i.status===fStat));
             
@@ -1111,7 +1115,7 @@
                     : `<span class="px-2 py-1 rounded text-xs font-bold ${i.status==='Selesai'?'bg-emerald-100 text-emerald-700':i.status==='Pinda'?'bg-amber-100 text-amber-700':'bg-slate-200 text-slate-600'}">${i.status}</span>`;
 
                 tr.innerHTML = `<td class="p-4 text-slate-500 whitespace-nowrap">${i.tarikh}</td><td class="p-4"><div>${badge}</div><div class="font-bold text-slate-900">${i.projek}</div><div class="text-xs text-slate-400">${i.pemohon}</div></td><td class="p-4 text-right font-bold text-indigo-700">RM ${i.amaun.toFixed(2)}</td><td class="p-4 text-center">${selectStatus}</td><td class="p-4 text-center id-tindakanPermohonan ${modAdmin?'':'hidden'}"><button onclick="padamItem('${idUnik}','permohonan', ${i.id || null})" class="text-rose-500 bg-rose-50 p-1 rounded cursor-pointer"><i class="fa-solid fa-trash-can"></i></button></td>`;
-                改造.appendChild(tr);
+                badanJadual.appendChild(tr);
             });
         }
 
@@ -1179,6 +1183,10 @@
                     bakiTinggalEl.className = "text-3xl md:text-5xl font-black text-emerald-400 mt-2";
                 }
             }
+        }
+
+        function bakaChartDummy() {
+            // Chart placeholder jika diperlukan
         }
 
         function binaCartaAliran() {
