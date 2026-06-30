@@ -71,17 +71,17 @@
 
     <main class="max-w-[1600px] mx-auto px-8 mt-10 space-y-10">
 
-        <!-- ================= SEKSI 1: SALDO BANK & DANA UTAMA ================= -->
+        <!-- ================= SEKSYEN 1: KEDUDUKAN BANK & DANA UTAMA ================= -->
         <section class="grid grid-cols-1 xl:grid-cols-12 gap-8">
             
-            <!-- KARTU UTAMA REKENING BANK -->
+            <!-- KAD UTAMA AKAUN BANK -->
             <div class="xl:col-span-4 lg:col-span-12 gradient-navy rounded-[2.5rem] p-10 text-white shadow-2xl relative overflow-hidden flex flex-col justify-center min-h-[300px]">
                 <div class="absolute -right-10 -top-10 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl"></div>
                 <div class="relative z-10 text-center md:text-left">
                     <span class="bg-white/10 text-blue-200 text-xs font-bold px-4 py-2 rounded-full border border-white/10 tracking-widest uppercase">
                         Akaun Bank Semasa
                     </span>
-                    <h2 class="text-sm font-medium text-slate-400 mt-6 uppercase tracking-widest">Saldo Saat Ini (Gabungan)</h2>
+                    <h2 class="text-sm font-medium text-slate-400 mt-6 uppercase tracking-widest">Baki Semasa (Gabungan)</h2>
                     <div id="txtBakiBank" class="text-4xl md:text-5xl lg:text-6xl font-black text-yellow-400 mt-2 tracking-tight leading-tight">RM 0.00</div>
                     
                     <div class="flex gap-8 mt-6 border-t border-slate-700/50 pt-6">
@@ -97,21 +97,21 @@
                 </div>
             </div>
 
-            <!-- KARTU ALOKASI SUB-DANA -->
+            <!-- KAD ALOKASI SUB-DANA -->
             <div class="xl:col-span-8 lg:col-span-12 grid grid-cols-1 md:grid-cols-2 gap-8">
                 
-                <!-- DANA UMUM KOMITE -->
+                <!-- DANA AM PIBG -->
                 <div class="glass-card rounded-[2.5rem] p-8 border-t-8 border-t-blue-500 flex flex-col justify-between">
                     <div class="flex justify-between items-start">
                         <div>
-                            <h3 class="text-xl font-bold text-slate-800 uppercase">1. Dana Umum Komite</h3>
-                            <p class="text-slate-500 text-sm mt-1">Sumbangan Sukarela, Orang Tua & Iuran</p>
+                            <h3 class="text-xl font-bold text-slate-800 uppercase">1. Dana Am PIBG</h3>
+                            <p class="text-slate-500 text-sm mt-1">Sumbangan Sukarela, Ibu Bapa & Yuran</p>
                         </div>
                         <div class="bg-blue-100 p-3 rounded-2xl text-blue-600"><i class="fa-solid fa-scale-balanced text-xl"></i></div>
                     </div>
                     <div class="mt-6 bg-blue-50/50 rounded-2xl p-5 flex flex-col lg:flex-row lg:justify-between lg:items-end gap-4 border border-blue-100">
                         <div>
-                            <p class="text-[11px] text-blue-900/60 uppercase font-bold tracking-widest mb-1">Saldo Bersih</p>
+                            <p class="text-[11px] text-blue-900/60 uppercase font-bold tracking-widest mb-1">Baki Bersih</p>
                             <p id="pibgBaki" class="text-3xl font-black text-blue-700">RM 0.00</p>
                         </div>
                         <div class="text-right text-xs bg-white px-3.5 py-2.5 rounded-xl shadow-sm space-y-1">
@@ -126,13 +126,13 @@
                     <div class="flex justify-between items-start">
                         <div>
                             <h3 class="text-xl font-bold text-slate-800 uppercase">2. Kelas Tambahan</h3>
-                            <p class="text-slate-500 text-sm mt-1">Pembelajaran & Modul Belajar Siswa</p>
+                            <p class="text-slate-500 text-sm mt-1">Pembelajaran & Modul Belajar Murid</p>
                         </div>
                         <div class="bg-rose-100 p-3 rounded-2xl text-rose-600"><i class="fa-solid fa-graduation-cap text-xl"></i></div>
                     </div>
                     <div class="mt-6 bg-rose-50/50 rounded-2xl p-5 flex flex-col lg:flex-row lg:justify-between lg:items-end gap-4 border border-rose-100">
                         <div>
-                            <p class="text-[11px] text-rose-900/60 uppercase font-bold tracking-widest mb-1">Saldo Bersih</p>
+                            <p class="text-[11px] text-rose-900/60 uppercase font-bold tracking-widest mb-1">Baki Bersih</p>
                             <p id="kelasBaki" class="text-3xl font-black text-rose-700">RM 0.00</p>
                         </div>
                         <div class="text-right text-xs bg-white px-3.5 py-2.5 rounded-xl shadow-sm space-y-1">
@@ -256,7 +256,7 @@
                      <div class="bg-yellow-100 p-2.5 rounded-xl text-yellow-600"><i class="fa-solid fa-user-shield text-lg"></i></div>
                      <h3 class="text-xl font-bold uppercase text-slate-800">Ruangan Pentadbir (Key-In Data)</h3>
                  </div>
-                 <!-- BUTANG RESET DAN IMPOR CSV -->
+                 <!-- BUTANG RESET DAN IMPORT CSV -->
                  <div class="flex flex-wrap gap-3">
                      <button onclick="bukaModalPengesahanReset()" class="bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs px-5 py-3 rounded-xl flex items-center gap-2 cursor-pointer transition-colors shadow">
                          <i class="fa-solid fa-arrows-rotate"></i> FORMAT & RESET DATA
@@ -376,13 +376,13 @@
                 </form>
              </div>
 
-             <!-- KOTAK IMPOR CSV SECARA MANUAL UNTUK MENYINKRONKAN DATA -->
+             <!-- KOTAK IMPORT CSV SECARA MANUAL UNTUK MENYINKRONKAN DATA -->
              <div class="bg-indigo-50/50 rounded-2xl p-6 border border-indigo-100 mt-6 text-sm">
-                <h4 class="text-lg font-bold text-indigo-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-file-import"></i> Muat Naik Data Tempatan (Impor CSV)</h4>
+                <h4 class="text-lg font-bold text-indigo-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-file-import"></i> Muat Naik Data Tempatan (Import CSV)</h4>
                 <p class="text-slate-600 text-xs mb-4">Jika data di pelayan awan kosong, anda boleh mengeksport data dari versi desktop anda sebagai CSV, kemudian memuat naiknya di sini untuk disinkronkan secara langsung ke awan.</p>
                 <div class="flex flex-col md:flex-row gap-4 items-center">
                     <input type="file" id="inputCSV" accept=".csv" class="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 outline-none">
-                    <button onclick="imporDariCSV()" class="w-full md:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-6 rounded-xl transition-colors shadow-md cursor-pointer whitespace-nowrap"><i class="fa-solid fa-cloud-arrow-up mr-2"></i> Sinkron Ke Awan</button>
+                    <button onclick="imporDariCSV()" class="w-full md:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-6 rounded-xl transition-colors shadow-md cursor-pointer whitespace-nowrap"><i class="fa-solid fa-cloud-arrow-up mr-2"></i> Penyamaan Ke Awan</button>
                 </div>
              </div>
         </div>
@@ -634,10 +634,12 @@
         // --- SISTEM NOTIFIKASI & MODAL ---
         function tunjukToast(mesej, status = 'sukses') {
             const toast = document.getElementById('notifikasiToast');
-            document.getElementById('mesejToast').innerText = mesej;
-            document.getElementById('ikonToast').innerHTML = status === 'sukses' ? '<i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>' : '<i class="fa-solid fa-circle-exclamation text-rose-500 text-lg"></i>';
-            toast.classList.remove('translate-y-24', 'opacity-0');
-            setTimeout(() => toast.classList.add('translate-y-24', 'opacity-0'), 3000);
+            if (toast) {
+                document.getElementById('mesejToast').innerText = mesej;
+                document.getElementById('ikonToast').innerHTML = status === 'sukses' ? '<i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>' : '<i class="fa-solid fa-circle-exclamation text-rose-500 text-lg"></i>';
+                toast.classList.remove('translate-y-24', 'opacity-0');
+                setTimeout(() => toast.classList.add('translate-y-24', 'opacity-0'), 3000);
+            }
         }
 
         function bukaModalLaluan() {
@@ -921,6 +923,11 @@
             }, paparRalatAwan);
         }
 
+        function paparRalatAwan(err) {
+            console.error("Ralat Sambungan Awan:", err);
+            tunjukToast("Sambungan awan terganggu. Mod luar talian diaktifkan.");
+        }
+
         // --- SISTEM PEMPROSESAN KEWANGAN VISUAL & PROJEKSI ---
         function prosesKewanganAutomatik() {
             let totalMasuk = 0, totalKeluar = 0;
@@ -1108,49 +1115,19 @@
             }
         }
 
-        function binaCartaAliran() {
-            let pibgBulanan = Array(12).fill(0), kelasBulanan = Array(12).fill(0);
-            database.forEach(i => {
-                let m = new Date(i.tarikh).getMonth();
-                let amt = i.jenis === 'Masuk' ? i.amaun : -i.amaun;
-                if(i.dana==='PIBG') pibgBulanan[m]+=amt; else kelasBulanan[m]+=amt;
-            });
-
-            const canvasLine = document.getElementById('chartKewanganDuaDana');
-            if (canvasLine) {
-                if(cartaKewanganInstance) cartaKewanganInstance.destroy();
-                cartaKewanganInstance = new Chart(canvasLine.getContext('2d'), {
-                    type: 'line',
-                    data: {
-                        labels: ['Jan','Feb','Mac','Apr','Mei','Jun','Jul','Ogo','Sep','Okt','Nov','Dis'],
-                        datasets: [
-                            { label: 'PIBG', data: pibgBulanan, borderColor: '#2563eb', tension: 0.3, fill: false },
-                            { label: 'Kelas Tambahan', data: kelasBulanan, borderColor: '#e11d48', tension: 0.3, fill: false }
-                        ]
-                    },
-                    options: { responsive: true, maintainAspectRatio: false }
-                });
+        async function tukarStatus(idCloud, val, localId) {
+            if (isFirebaseActive) {
+                await db.collection('artifacts').doc(appId).collection('public').doc('data').collection('permohonan').doc(idCloud).update({ status: val });
+            } else {
+                let item = permohonanDatabase.find(i => i.id === localId);
+                if (item) {
+                    item.status = val;
+                    localStorage.setItem('st_annes_pibg_permohonan_db', JSON.stringify(permohonanDatabase));
+                    prosesPermohonanAutomatik(); 
+                    prosesKewanganAutomatik();
+                }
             }
-
-            let labelsClasses = Object.keys(muridDatabase);
-            let selesaiData = labelsClasses.map(k => muridDatabase[k].selesai);
-            let belumData = labelsClasses.map(k => muridDatabase[k].total - muridDatabase[k].selesai);
-
-            const canvasBar = document.getElementById('chartKewanganKelas');
-            if (canvasBar) {
-                if(cartaKewanganKelasInstance) cartaKewanganKelasInstance.destroy();
-                cartaKewanganKelasInstance = new Chart(canvasBar.getContext('2d'), {
-                    type: 'bar',
-                    data: {
-                        labels: labelsClasses.map(k => k.split(' ')[0] + k.split(' ')[1][0]),
-                        datasets: [
-                            { label: 'Selesai', data: selesaiData, backgroundColor: '#10b981' },
-                            { label: 'Belum', data: belumData, backgroundColor: '#ef4444' }
-                        ]
-                    },
-                    options: { responsive: true, maintainAspectRatio: false }
-                });
-            }
+            tunjukToast("STATUS PERMOHONAN DIKEMASKINI");
         }
 
         function tutupModalPengesahan() {
@@ -1168,12 +1145,7 @@
                 btnSahkan.onclick = async function() {
                     if (jenisPadam === 'kewangan') {
                         if (isFirebaseActive) {
-                            try {
-                                await db.collection('artifacts').doc(appId).collection('public').doc('data').collection('transaksi').doc(idRekodMahuDipadam).delete();
-                            } catch(err) {
-                                console.error(err);
-                                tunjukToast("Gagal memadam transaksi di awan!", "ralat");
-                            }
+                            await db.collection('artifacts').doc(appId).collection('public').doc('data').collection('transaksi').doc(idRekodMahuDipadam).delete();
                         } else {
                             database = database.filter(i => i.id !== localId);
                             localStorage.setItem('st_annes_pibg_db_v2', JSON.stringify(database));
@@ -1181,12 +1153,7 @@
                         }
                     } else {
                         if (isFirebaseActive) {
-                            try {
-                                await db.collection('artifacts').doc(appId).collection('public').doc('data').collection('permohonan').doc(idRekodMahuDipadam).delete();
-                            } catch(err) {
-                                console.error(err);
-                                tunjukToast("Gagal memadam permohonan di awan!", "ralat");
-                            }
+                            await db.collection('artifacts').doc(appId).collection('public').doc('data').collection('permohonan').doc(idRekodMahuDipadam).delete();
                         } else {
                             permohonanDatabase = permohonanDatabase.filter(i => i.id !== localId);
                             localStorage.setItem('st_annes_pibg_permohonan_db', JSON.stringify(permohonanDatabase));
