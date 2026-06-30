@@ -257,7 +257,7 @@
                          <i class="fa-solid fa-arrows-rotate"></i> FORMAT & RESET DATA
                      </button>
                  </div>
-             </div>
+              </div>
 
              <div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
                 <!-- Wang Masuk -->
@@ -446,7 +446,7 @@
                     </div>
                     <div class="flex gap-2 shrink-0">
                         <select id="filterUnit" onchange="paparJadualPermohonan()" class="bg-slate-50 border rounded-xl px-4 py-2 text-sm font-bold outline-none focus:ring-2 focus:ring-indigo-500">
-                            <option value="SEMUA">Semua Unit</option>
+                            <option value="SEMUA">All Units</option>
                             <option value="Kurikulum">Kuri</option>
                             <option value="Kokurikulum">Koko</option>
                             <option value="HEM">HEM</option>
@@ -1092,11 +1092,11 @@
         }
 
         function paparJadualPermohonan() {
-            const badan = document.getElementById('badanJadualPermohonan');
-            if (!badan) return;
+            const改造 = document.getElementById('badanJadualPermohonan');
+            if (!改造) return;
             const fUnit = document.getElementById('filterUnit').value;
             const fStat = document.getElementById('filterStatus').value;
-            badan.innerHTML = '';
+            改造.innerHTML = '';
             
             let filtered = permohonanDatabase.filter(i => (fUnit==='SEMUA' || i.unit===fUnit) && (fStat==='SEMUA' || i.status===fStat));
             
@@ -1111,7 +1111,7 @@
                     : `<span class="px-2 py-1 rounded text-xs font-bold ${i.status==='Selesai'?'bg-emerald-100 text-emerald-700':i.status==='Pinda'?'bg-amber-100 text-amber-700':'bg-slate-200 text-slate-600'}">${i.status}</span>`;
 
                 tr.innerHTML = `<td class="p-4 text-slate-500 whitespace-nowrap">${i.tarikh}</td><td class="p-4"><div>${badge}</div><div class="font-bold text-slate-900">${i.projek}</div><div class="text-xs text-slate-400">${i.pemohon}</div></td><td class="p-4 text-right font-bold text-indigo-700">RM ${i.amaun.toFixed(2)}</td><td class="p-4 text-center">${selectStatus}</td><td class="p-4 text-center id-tindakanPermohonan ${modAdmin?'':'hidden'}"><button onclick="padamItem('${idUnik}','permohonan', ${i.id || null})" class="text-rose-500 bg-rose-50 p-1 rounded cursor-pointer"><i class="fa-solid fa-trash-can"></i></button></td>`;
-                badan.appendChild(tr);
+                改造.appendChild(tr);
             });
         }
 
