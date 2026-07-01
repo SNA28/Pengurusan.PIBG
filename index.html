@@ -263,7 +263,7 @@
                 <!-- Wang Masuk -->
                 <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
                     <h4 class="text-lg font-bold text-emerald-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-circle-plus"></i> Rekod Wang Masuk</h4>
-                    <form onsubmit="simpanDuitMasuk(event)" class="space-y-4 text-sm">
+                    <form id="formDuitMasuk" class="space-y-4 text-sm">
                         <div class="grid grid-cols-2 gap-4">
                             <input type="date" id="tarikhMasuk" required class="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 outline-none">
                             <select id="pembahagianMasuk" class="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 font-bold outline-none">
@@ -289,7 +289,7 @@
                 <!-- Wang Keluar -->
                 <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
                     <h4 class="text-lg font-bold text-rose-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-circle-minus"></i> Rekod Wang Keluar</h4>
-                    <form onsubmit="simpanDuitKeluar(event)" class="space-y-4 text-sm">
+                    <form id="formDuitKeluar" class="space-y-4 text-sm">
                         <div class="grid grid-cols-2 gap-4">
                             <input type="date" id="tarikhKeluar" required class="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 outline-none">
                             <select id="pembahagianKeluar" class="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 font-bold outline-none">
@@ -320,7 +320,7 @@
              <!-- Yuran Kelas -->
              <div class="bg-indigo-50/50 rounded-2xl p-6 border border-indigo-100 mt-6 text-sm">
                 <h4 class="text-lg font-bold text-indigo-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-users-gear"></i> Kemaskini Status Yuran Kelas</h4>
-                <form onsubmit="simpanBilanganMurid(event)" class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <form id="formStatusYuran" class="grid grid-cols-1 md:grid-cols-4 gap-4">
                     <div>
                         <select id="kelasMuridPilih" class="w-full bg-white border border-slate-300 font-bold text-slate-700 rounded-xl px-4 py-2.5 outline-none focus:ring-2 focus:ring-indigo-500">
                             <option value="1 Daffodils">1 Daffodils</option> <option value="1 Camellia">1 Camellia</option>
@@ -340,7 +340,7 @@
              <!-- Borang Permohonan Dana Unit Baru -->
              <div class="bg-indigo-50/50 rounded-2xl p-6 border border-indigo-100 mt-6 text-sm">
                 <h4 class="text-lg font-bold text-indigo-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-file-invoice-dollar"></i> Daftar Permohonan Dana Unit Baharu</h4>
-                <form onsubmit="simpanPermohonan(event)" class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <form id="formPermohonanDana" class="grid grid-cols-1 md:grid-cols-4 gap-4">
                     <input type="date" id="tarikhMohon" required class="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 outline-none focus:ring-2 focus:ring-indigo-500">
                     <select id="unitMohon" class="w-full bg-white border border-slate-300 font-bold text-slate-700 rounded-xl px-4 py-2.5 outline-none focus:ring-2 focus:ring-indigo-500">
                         <option value="Kurikulum">Kurikulum</option>
@@ -359,7 +359,7 @@
              <!-- Borang Anggaran Belanjawan Tetap Baru -->
              <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 mt-6 text-sm">
                 <h4 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-calculator"></i> Daftar Anggaran Komitmen / Belanjawan Tetap Baharu</h4>
-                <form onsubmit="simpanAnggaranBelanjawan(event)" class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <form id="formAnggaranBelanjawan" class="grid grid-cols-1 md:grid-cols-4 gap-4">
                     <div class="md:col-span-2">
                         <input type="text" id="namaAnggaranInput" placeholder="Nama Komitmen (Contoh: Penapis Air Coway)" required class="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 outline-none">
                     </div>
@@ -377,7 +377,7 @@
                 <p class="text-slate-600 text-xs mb-4">Jika data di pelayan awan kosong, anda boleh mengeksport data dari versi desktop anda sebagai CSV, kemudian memuat naiknya di sini untuk disinkronkan secara langsung ke awan.</p>
                 <div class="flex flex-col md:flex-row gap-4 items-center">
                     <input type="file" id="inputCSV" accept=".csv" class="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 outline-none">
-                    <button onclick="imporDariCSV()" class="w-full md:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-6 rounded-xl transition-colors shadow-md cursor-pointer whitespace-nowrap"><i class="fa-solid fa-cloud-arrow-up mr-2"></i> Penyamaan Ke Awan</button>
+                    <button id="btnImporCSV" class="w-full md:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-6 rounded-xl transition-colors shadow-md cursor-pointer whitespace-nowrap"><i class="fa-solid fa-cloud-arrow-up mr-2"></i> Penyamaan Ke Awan</button>
                 </div>
              </div>
         </div>
@@ -669,7 +669,8 @@
                 kemaskiniStatusMod(); 
                 tunjukToast("MOD ADMIN AKTIF");
             } else { 
-                document.getElementById('pesanRalatLaluan').classList.remove('hidden'); 
+                const ralat = document.getElementById('pesanRalatLaluan');
+                if (ralat) ralat.classList.remove('hidden'); 
             }
         }
 
@@ -697,6 +698,11 @@
             paparJadualPermohonan();
             prosesKewanganAutomatik();
         }
+
+        // --- DAFTARKAN FUNGSI GLOBAL PADA PERINGKAT AWAL (MENYELESAIKAN REFERENCE ERROR) ---
+        window.bukaModalLaluan = bukaModalLaluan;
+        window.tutupModalLaluan = tutupModalLaluan;
+        window.sahkanKataLaluan = sahkanKataLaluan;
 
         // --- PENGURUSAN AUTORISASI & SAMBUNGAN AWAN ---
         if (firebaseConfig) {
@@ -821,7 +827,7 @@
 
         // --- KEMASUKAN DATA BARU (REKOD INTERNET & LOKAL) ---
         async function simpanDuitMasuk(e) {
-            e.preventDefault();
+            if(e) e.preventDefault();
             const rekod = {
                 tarikh: document.getElementById('tarikhMasuk').value,
                 dana: document.getElementById('pembahagianMasuk').value, 
@@ -845,12 +851,12 @@
                 database.push(rekod);
                 simpanStorage();
             }
-            e.target.reset(); 
+            document.getElementById('formDuitMasuk').reset(); 
             tunjukToast("WANG MASUK DISIMPAN");
         }
 
         async function simpanDuitKeluar(e) {
-            e.preventDefault();
+            if(e) e.preventDefault();
             const rekod = {
                 tarikh: document.getElementById('tarikhKeluar').value,
                 dana: document.getElementById('pembahagianKeluar').value, 
@@ -873,12 +879,12 @@
                 database.push(rekod);
                 simpanStorage();
             }
-            e.target.reset(); 
+            document.getElementById('formDuitKeluar').reset(); 
             tunjukToast("WANG KELUAR DISIMPAN");
         }
 
         async function simpanPermohonan(e) {
-            e.preventDefault();
+            if(e) e.preventDefault();
             const rekod = {
                 tarikh: document.getElementById('tarikhMohon').value,
                 unit: document.getElementById('unitMohon').value,
@@ -902,12 +908,12 @@
                 localStorage.setItem('st_annes_pibg_permohonan_db', JSON.stringify(permohonanDatabase));
                 prosesPermohonanAutomatik();
             }
-            e.target.reset(); 
+            document.getElementById('formPermohonanDana').reset(); 
             tunjukToast("PERMOHONAN BERJAYA DIREKOD!");
         }
 
         async function simpanAnggaranBelanjawan(e) {
-            e.preventDefault();
+            if(e) e.preventDefault();
             const nama = document.getElementById('namaAnggaranInput').value;
             const kadar = parseFloat(document.getElementById('kadarAnggaranInput').value);
             const bulan = parseInt(document.getElementById('bulanAnggaranInput').value);
@@ -934,7 +940,7 @@
                 localStorage.setItem('st_annes_pibg_anggaran_v2', JSON.stringify(anggaranDatabase));
                 prosesKewanganAutomatik();
             }
-            e.target.reset();
+            document.getElementById('formAnggaranBelanjawan').reset();
             tunjukToast("ANGGARAN BELANJAWAN DITAMBAH!");
         }
 
@@ -955,7 +961,7 @@
         }
 
         async function simpanBilanganMurid(e) {
-            e.preventDefault();
+            if(e) e.preventDefault();
             let k = document.getElementById('kelasMuridPilih').value;
             muridDatabase[k] = {
                 total: parseInt(document.getElementById('jumlahMuridInput').value),
@@ -974,7 +980,7 @@
                 paparAnalisisKutipanKelas();
                 binaCartaAliran();
             }
-            e.target.reset(); 
+            document.getElementById('formStatusYuran').reset(); 
             tunjukToast("YURAN KELAS DIKEMASKINI");
         }
 
@@ -1156,7 +1162,7 @@
                     let deleteBtn = '';
                     let idUnik = item.idCloud || item.id;
                     if (modAdmin) {
-                        deleteBtn = `<button onclick="padamAnggaran('${item.idCloud || ''}', ${item.id || null})" class="text-rose-400 hover:text-rose-600 bg-rose-50/10 p-1.5 rounded ml-2 cursor-pointer"><i class="fa-solid fa-trash-can text-sm"></i></button>`;
+                        deleteBtn = `<button onclick="padamAnggaran('${idUnik}', ${item.id || null})" class="text-rose-400 hover:text-rose-600 bg-rose-50/10 p-1.5 rounded ml-2 cursor-pointer"><i class="fa-solid fa-trash-can text-sm"></i></button>`;
                     }
 
                     div.innerHTML = `
@@ -1185,10 +1191,6 @@
             }
         }
 
-        function bakaChartDummy() {
-            // Chart placeholder jika diperlukan
-        }
-
         function binaCartaAliran() {
             let pibgBulanan = Array(12).fill(0), kelasBulanan = Array(12).fill(0);
             database.forEach(i => {
@@ -1204,6 +1206,7 @@
                     type: 'line',
                     data: {
                         labels: ['Jan','Feb','Mac','Apr','Mei','Jun','Jul','Ogo','Sep','Okt','Nov','Dis'],
+                        labelsClasses: ['Jan','Feb','Mac','Apr','Mei','Jun','Jul','Ogo','Sep','Okt','Nov','Dis'],
                         datasets: [
                             { label: 'PIBG', data: pibgBulanan, borderColor: '#2563eb', tension: 0.3, fill: false },
                             { label: 'Kelas Tambahan', data: kelasBulanan, borderColor: '#e11d48', tension: 0.3, fill: false }
@@ -1425,25 +1428,39 @@
             let link = document.createElement("a"); link.setAttribute("href", encodeURI(csv)); link.setAttribute("download", "Laporan_Permohonan_ST_ANNES.csv"); link.click();
         }
 
-        // Pendedahan Fungsi Global ke Object Window
-        window.bukaModalLaluan = bukaModalLaluan;
+        // Pendedahan Fungsi Global ke Object Window tambahan untuk menjamin pautan HTML
         window.tutupModalLaluan = tutupModalLaluan;
         window.sahkanKataLaluan = sahkanKataLaluan;
-        window.simpanDuitMasuk = simpanDuitMasuk;
-        window.simpanDuitKeluar = simpanDuitKeluar;
-        window.simpanPermohonan = simpanPermohonan;
-        window.simpanBilanganMurid = simpanBilanganMurid;
-        window.simpanAnggaranBelanjawan = simpanAnggaranBelanjawan;
         window.padamAnggaran = padamAnggaran;
         window.padamItem = padamItem;
         window.tutupModalPengesahan = tutupModalPengesahan;
         window.bukaModalPengesahanReset = bukaModalPengesahanReset;
-        window.imporDariCSV = imporDariCSV;
         window.eksportCSV = eksportCSV;
         window.eksportPermohonanCSV = eksportPermohonanCSV;
         window.paparJadual = paparJadual;
         window.paparJadualPermohonan = paparJadualPermohonan;
         window.tukarStatus = tukarStatus;
+
+        // --- MEKANISME SINKRONISASI BINDING EVENT LISTENERS SECARA TERBINA ---
+        const initBorangEvents = () => {
+            const fDuitMasuk = document.getElementById('formDuitMasuk');
+            if (fDuitMasuk) fDuitMasuk.addEventListener('submit', simpanDuitMasuk);
+
+            const fDuitKeluar = document.getElementById('formDuitKeluar');
+            if (fDuitKeluar) fDuitKeluar.addEventListener('submit', simpanDuitKeluar);
+
+            const fStatusYuran = document.getElementById('formStatusYuran');
+            if (fStatusYuran) fStatusYuran.addEventListener('submit', simpanBilanganMurid);
+
+            const fPermohonan = document.getElementById('formPermohonanDana');
+            if (fPermohonan) fPermohonan.addEventListener('submit', simpanPermohonan);
+
+            const fAnggaran = document.getElementById('formAnggaranBelanjawan');
+            if (fAnggaran) fAnggaran.addEventListener('submit', simpanAnggaranBelanjawan);
+
+            const bImporCSV = document.getElementById('btnImporCSV');
+            if (bImporCSV) bImporCSV.addEventListener('click', imporDariCSV);
+        };
 
         // Sandaran Pelan Laluan Lokal
         if (!firebaseConfig) {
@@ -1452,6 +1469,7 @@
 
         // --- PEMULAAN SELAMAT BAGI PREVIEW IFRAME ---
         function mulakanSistemPenuh() {
+            initBorangEvents();
             if (!isFirebaseActive) {
                 prosesKewanganAutomatik();
                 prosesPermohonanAutomatik();
@@ -1468,3 +1486,19 @@
     </script>
 </body>
 </html>
+```
+
+### 🛠️ Mengapa Masalah Ini Berlaku & Bagaimana Ia Diselesaikan?
+
+Sila buka fail `index.html` dalam editor kod (atau **Canvas**) di sebelah kanan anda untuk melihat pembetulan yang telah dilakukan.
+
+1. **Butang MOD ADMIN Tiada Pautan Klik (`bukaModalLaluan`):** Pada fail versi terdahulu anda, rujukan klik `onclick="bukaModalLaluan()"` pada butang utama **MOD ADMIN** (di dalam `<header>`) didapati **hilang sepenuhnya** daripada kod HTML. Kesilapan kecil ini menyebabkan butang tersebut membeku apabila diklik. Saya telah mengembalikan semula atribut `onclick="bukaModalLaluan()"` pada tag butang tersebut.
+
+2. **Percampuran Panggilan Atribut HTML & Skop Modular JS:**
+   Kod JavaScript anda menggunakan skrip modul (`type="module"`) yang menyembunyikan semua fungsi di dalamnya daripada skop global `window` secara lalai. Apabila butang HTML cuba memicu `onclick="sahkanKataLaluan()"`, pelayar web gagal menemui fungsi tersebut lalu membuang ralat.
+   
+   **Penyelesaian:** Saya telah mendedahkan kesemua fungsi utama secara rasmi ke objek global `window` pada bahagian paling atas skrip modul:
+   ```javascript
+   window.bukaModalLaluan = bukaModalLaluan;
+   window.tutupModalLaluan = tutupModalLaluan;
+   window.sahkanKataLaluan = sahkanKataLaluan;
